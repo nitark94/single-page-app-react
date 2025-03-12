@@ -12,6 +12,7 @@ const App = ({ notes }) => {
     </div>
   );
 };
+console.log('App works')
 
 export default App;
 
