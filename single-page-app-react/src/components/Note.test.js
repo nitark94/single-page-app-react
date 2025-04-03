@@ -63,7 +63,7 @@ test('Adding a new note adds it to the list', () => {
 
   test('Fetches notes from the API', async () => {
     const mockNotes = [{ id: 1, text: 'Test note' }];
-    global.fetch = jest.fn().mockResolvedValueOnce({
+    global.fetch = vi.fn().mockResolvedValueOnce({
       json: () => mockNotes,
     });
   
@@ -71,6 +71,7 @@ test('Adding a new note adds it to the list', () => {
     const noteText = await screen.findByText('Test note');
     expect(noteText).toBeInTheDocument();
   });
+  
 
   test('Displays error message when API call fails', async () => {
     global.fetch = jest.fn().mockRejectedValueOnce(new Error('API error'));
